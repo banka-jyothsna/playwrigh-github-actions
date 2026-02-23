@@ -1,0 +1,10 @@
+name: environment variables
+on: workflow_dispatch
+jobs:
+    env-variables:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print env variables
+              run: echo " hello ${{env.name}}"
+              env:
+                name: "jyothsna"
