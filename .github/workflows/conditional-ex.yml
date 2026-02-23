@@ -1,0 +1,11 @@
+name: conditions
+on: push
+jobs:
+    condition:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v4
+            - name : print message
+              if: github.ref=='refs/heads/main'
+              run: echo "running in main branch"
