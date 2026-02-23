@@ -1,0 +1,11 @@
+name: matrix-startegy example
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [18,20]   # this will run the test on both node 18 and node 20 versions
+        steps: 
+            - name: print version
+              run: echo "node versionis ${{ matrix.node-version }}"
