@@ -1,7 +1,7 @@
 name: ci pipeline
 on:
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '36 13 * * *'
 jobs:
     ci-pipeline:
         runs-on: ubuntu-latest
