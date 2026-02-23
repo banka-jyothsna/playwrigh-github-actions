@@ -1,0 +1,11 @@
+name: checkout repository
+on: push
+jobs:
+    checkout:
+        runs-on: ubuntut-latest
+        steps:
+            - name : checkout repo
+              uses: actions/checkout@v4
+            - name: confirmation
+              run: echo "repository checked out successfully"
+
