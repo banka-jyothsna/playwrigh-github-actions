@@ -1,0 +1,22 @@
+name: matrix ci
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                browser: [chromium, firefox]
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+
+            - name: set up node
+              uses: actions/setup-node@v4
+              with:
+                 node-version: 20
+                 
+            - name: install dependencies
+              run: npm install
+
+            - name: run tests
+              run: npx playwright test
