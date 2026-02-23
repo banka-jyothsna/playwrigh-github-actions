@@ -7,4 +7,4 @@ jobs:
             - name: print env variables
               run: echo " hello ${{env.name}}"
               env:
-                name: "john doe"
+                name: "jyothsna"
