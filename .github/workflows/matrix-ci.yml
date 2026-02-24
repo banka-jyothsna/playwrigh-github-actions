@@ -1,8 +1,11 @@
-name: ci pipeline
-on: pull_request
+name: matrix ci
+on: push
 jobs:
-    ci-pipeline:
+    test:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                browser: [chromium, firefox]
         steps:
             - name: checkout repository
               uses: actions/checkout@v4
@@ -10,14 +13,10 @@ jobs:
             - name: set up node
               uses: actions/setup-node@v4
               with:
-                 node-version: 18
+                 node-version: 20
                  
-            
             - name: install dependencies
               run: npm install
-            
-            - name: install playwright browsers
-              run: npx playwright install --with-deps
 
             - name: run tests
               run: npx playwright test
